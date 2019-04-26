@@ -1,6 +1,7 @@
 import React from "react";
-import { observer, inject } from "mobx-react";
+import { observer } from "mobx-react";
 import Container from "../../components/container";
+/*import SocialShare from "../../components/social-share";*/
 import style from "./index.module.scss";
 
 class Generator extends React.Component {
@@ -34,24 +35,21 @@ class Generator extends React.Component {
 
     return (
       <Container>
-        <div className="step-count">Step 3/3</div>
+        <div className="step-count">Step 6/6</div>
         <h1 className="title">How might we...?</h1>
-        <div className="description">
-          Let’s combine your passion and purpose – it’s okay if the ideas are crazy!
-        </div>
         <div className={style.generatedQuestion}>
-          How might we use <span className={style.generatedPassion}>{passion}</span> to{" "}
-          <span className={style.generatedPurpose}>{purpose}</span>?
+          We Will Make <span className={style.generatedMedium}>{medium}</span> to{" "}
+          <span className={style.action} /> for{""}
+          <span className={style.generatedAudience}>{audience}</span>
           <div className={style.generateButtonContainer}>
             <button className="button button__stacked" onClick={this.getNextCombination}>
               Give Me Another
             </button>
           </div>
         </div>
-        stepNumber="4"
       </Container>
     );
   }
 }
 
-export default inject("gameData")(observer(Generator));
+export default observer(Generator);
